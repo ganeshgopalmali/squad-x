@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "551a4258-08a9-47bb-8203-c48c182aa8a0",
+		"name": "Hackathon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8090/api/discover-transactions",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "x-fapi-interaction-id",
+						"value": "2c96efd2-6566-490a-81d7-24dd51340196",
+						"type": "text"
+					},
+					{
+						"key": "x-fapi-financial-id",
+						"value": "OB/2017/001",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/discover-transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"discover-transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.hsbc.qa.xlabs.one/invais/open-banking/v1.1/transactions",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "x-fapi-interaction-id",
+						"value": "2c96efd2-6566-490a-81d7-24dd51340196",
+						"type": "text"
+					},
+					{
+						"key": "x-fapi-financial-id",
+						"value": "OB/2017/001",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.hsbc.qa.xlabs.one/invais/open-banking/v1.1/transactions",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hsbc",
+						"qa",
+						"xlabs",
+						"one"
+					],
+					"path": [
+						"invais",
+						"open-banking",
+						"v1.1",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
