@@ -1,0 +1,53 @@
+{
+    "debitTransactionDetails": {
+        "Other Payment": {
+            "amount": 1382.95,
+            "currrency": "GBP"
+        },
+        "EcommerceGoods Payment": {
+            "amount": 1075.3200000000002,
+            "currrency": "GBP"
+        },
+        "EcommerceServices Payment": {
+            "amount": 2506.45,
+            "currrency": "GBP"
+        },
+        "nan Payment": {
+            "amount": 2952.54,
+            "currrency": "GBP"
+        },
+        "BillPayment Payment": {
+            "amount": 2500,
+            "currrency": "GBP"
+        }
+    },
+    "creditTransactionDetails": {
+        "Other Payment": {
+            "amount": 1816.41,
+            "currrency": "GBP"
+        },
+        "PersonToPerson Payment": {
+            "amount": 1298.76,
+            "currrency": "GBP"
+        },
+        "EcommerceGoods Payment": {
+            "amount": 1162.99,
+            "currrency": "GBP"
+        },
+        "EcommerceServices Payment": {
+            "amount": 688.22,
+            "currrency": "GBP"
+        },
+        "BillPayment Payment": {
+            "amount": 2910.8599999999997,
+            "currrency": "GBP"
+        },
+        "cheque credit": {
+            "amount": 1053.29,
+            "currrency": "GBP"
+        }
+    },
+    "totalDebit": 10417.26,
+    "totalCredit": 8930.53,
+    "totalSaving": 286.33000000000175
+}
