@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.async.DeferredResult;
 
 import com.hackathon.squadx.model.TransactionAnalysis;
+import com.hackathon.squadx.model.TransactionsRequest;
 import com.hackathon.squadx.services.CustomerTransactions;
 import com.hackathon.squadx.util.Executors;
 
@@ -21,8 +22,8 @@ public class DiscoverTranactionsController {
 	}
 	
 	@PostMapping(value="/discover-transactions")
-	public DeferredResult<TransactionAnalysis> getData(HttpServletRequest request){
-		return Executors.toDeferred(customerTransactions.discoverTransactions(request));
+	public DeferredResult<TransactionAnalysis> getData(HttpServletRequest request, @RequestBody TransactionsRequest transactionsRequest ){
+		return Executors.toDeferred(customerTransactions.discoverTransactions(request, transactionsRequest));
 	}
 	
 	@GetMapping(value="/hello")

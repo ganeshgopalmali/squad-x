@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
 
+import com.hackathon.squadx.model.TransactionsRequest;
+
 import rx.Single;
 
 @Service
@@ -24,8 +26,8 @@ public class SquadXHystrixClient implements SquadXClient {
 	}
 	
 	@Override
-	public Single<Map<String, Object>> discoverTransactions(HttpServletRequest httpReq) {
-		return client.discoverTransactions(httpReq).toSingle();
+	public Single<Map<String, Object>> discoverTransactions(HttpServletRequest httpReq,TransactionsRequest transactionsRequest) {
+		return client.discoverTransactions(httpReq, transactionsRequest).toSingle();
 	}
 
 }

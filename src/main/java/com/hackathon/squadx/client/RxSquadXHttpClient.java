@@ -10,9 +10,12 @@ import javax.ws.rs.core.MultivaluedHashMap;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
+import org.apache.commons.lang.StringUtils;
 import org.glassfish.jersey.client.rx.RxClient;
 import org.glassfish.jersey.client.rx.rxjava.RxObservableInvoker;
 import org.springframework.stereotype.Service;
+
+import com.hackathon.squadx.model.TransactionsRequest;
 
 import rx.Observable;
 
@@ -28,9 +31,16 @@ public class RxSquadXHttpClient implements SquadXHttpClient {
 	}
 
 	@Override
-	public Observable<Map<String, Object>> discoverTransactions(HttpServletRequest httpReq) {
+	public Observable<Map<String, Object>> discoverTransactions(HttpServletRequest httpReq, TransactionsRequest transactionsRequest) {
 		
 		UriBuilder URL = UriBuilder.fromUri(transactionURL);
+		if(StringUtils.isNotBlank(transactionsRequest.getTransactionFromDateTime())){
+			URL.queryParam("fromBookingDateTime", transactionsRequest.getTransactionFromDateTime());
+		}
+		if(StringUtils.isNotBlank(transactionsRequest.getTransactionToDateTime())){
+			URL.queryParam("toBookingDateTime", transactionsRequest.getTransactionToDateTime());
+		}
+		
 		RxObservableInvoker rxObservableInvoker= createRequest(URL,httpReq);
 		return rxObservableInvoker.get().map(response -> parseAsMap(response));
 	}

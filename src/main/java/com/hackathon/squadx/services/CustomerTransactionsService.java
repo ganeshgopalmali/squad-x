@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import com.hackathon.squadx.client.SquadXClient;
 import com.hackathon.squadx.model.TransactionAnalysis;
 import com.hackathon.squadx.model.TransactionHistory;
+import com.hackathon.squadx.model.TransactionsRequest;
 import com.jayway.jsonpath.ParseContext;
 
 import rx.Single;
@@ -22,8 +23,8 @@ public class CustomerTransactionsService implements CustomerTransactions {
 	}
 	
 	@Override
-	public Single<TransactionAnalysis> discoverTransactions(HttpServletRequest httpReq) {
-		return squadXClient.discoverTransactions(httpReq).map(it-> TransactionHistory.from(it,parseContext));
+	public Single<TransactionAnalysis> discoverTransactions(HttpServletRequest httpReq, TransactionsRequest transactionsRequest) {
+		return squadXClient.discoverTransactions(httpReq, transactionsRequest).map(it-> TransactionHistory.from(it,parseContext));
 	}
 
 }

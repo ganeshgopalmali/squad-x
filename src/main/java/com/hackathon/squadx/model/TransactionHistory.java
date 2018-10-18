@@ -2,7 +2,9 @@ package com.hackathon.squadx.model;
 
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import com.jayway.jsonpath.ParseContext;
 
@@ -64,6 +66,12 @@ public class TransactionHistory {
 		}else{
 			TransactionAnalysis.setTotalSaving( Double.valueOf(TransactionsData.getTransaction().get(0).getBalance().getAmount().getAmount().replaceAll(",", "")));
 		}
+		
+		debitTransactionDetails= debitTransactionDetails.entrySet().stream().sorted((e1,e2) -> e2.getValue().getAmount().compareTo(e1.getValue().getAmount()))
+				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1,e2) -> e1, LinkedHashMap::new));
+		
+		creditTransactionDetails= debitTransactionDetails.entrySet().stream().sorted((e1,e2) -> e2.getValue().getAmount().compareTo(e1.getValue().getAmount()))
+				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1,e2) -> e1, LinkedHashMap::new));
 		
 		TransactionAnalysis.setDebitTransactionDetails(debitTransactionDetails);
 		TransactionAnalysis.setCreditTransactionDetails(creditTransactionDetails);

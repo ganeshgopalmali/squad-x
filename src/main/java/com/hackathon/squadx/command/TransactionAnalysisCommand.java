@@ -5,6 +5,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import com.hackathon.squadx.client.SquadXHttpClient;
+import com.hackathon.squadx.model.TransactionsRequest;
 import com.netflix.hystrix.HystrixCommandGroupKey;
 import com.netflix.hystrix.HystrixCommandKey;
 import com.netflix.hystrix.HystrixCommandProperties;
@@ -16,8 +17,9 @@ public class TransactionAnalysisCommand extends HystrixObservableCommand<Map<Str
 	
 	private final SquadXHttpClient client;
 	private final HttpServletRequest request;
+	private final TransactionsRequest transactionsRequest;
 	
-	public TransactionAnalysisCommand(HttpServletRequest request, SquadXHttpClient client) {
+	public TransactionAnalysisCommand(HttpServletRequest request, SquadXHttpClient client, TransactionsRequest transactionsRequest) {
 		super(Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("analysis"))
 				.andCommandKey(HystrixCommandKey.Factory.asKey("/discover-transactions"))
 				.andCommandPropertiesDefaults(HystrixCommandProperties.Setter()
@@ -26,11 +28,12 @@ public class TransactionAnalysisCommand extends HystrixObservableCommand<Map<Str
 						));
 		this.request= request;
 		this.client= client;
+		this.transactionsRequest= transactionsRequest;
 	}
 
 	@Override
 	protected Observable<Map<String, Object>> construct() {
-		return client.discoverTransactions(request);
+		return client.discoverTransactions(request,transactionsRequest);
 	}
 
 }
