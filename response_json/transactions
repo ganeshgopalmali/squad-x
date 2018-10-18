@@ -1,0 +1,197 @@
+{
+"name": "Transactions",
+"children": [
+{
+ "name": "HSBC",
+ "children": [
+  {
+   "name": "Saving Account",
+   "children": [
+    {
+     "name": "Online Shopping",
+     "children": [
+      {"name": "Amazon", "amount": 33938, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "Gropher", "amount": 33812, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "RedBus", "amount": 6714, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "MobiKwik", "amount": 743, "currency": "$", "trdate": "12-Oct-2018"}
+     ]
+    },
+    {
+     "name": "Bill Payments",
+     "children": [
+      {"name": "Electricity", "amount": 23534, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "Car Wash", "amount": 5731, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "Water", "amount": 7840, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "Internet", "amount": 5914, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "Cable", "amount": 3416, "currency": "$", "trdate": "12-Oct-2018"}
+     ]
+    },
+    {
+     "name": "EMI",
+     "children": [
+      {"name": "HomeLoan", "amount": 7074, "currency": "$", "trdate": "12-Oct-2018"}
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Current Account",
+   "children": [
+    {"name": "Interest", "amount": 17010, "currency": "$", "trdate": "12-Oct-2018"},
+    {"name": "Payments", "amount": 5842, "currency": "$", "trdate": "12-Oct-2018"},
+    {
+     "name": "Cash Withdrawals",
+     "children": [
+      {"name": "ATM Oct 11", "amount": 1983, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "ATM Oct 12", "amount": 2047, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "Cheque Oct 12", "amount": 1375, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "ATM Oct 14", "amount": 8746, "currency": "$", "trdate": "12-Oct-2018"}
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Credit Card Account",
+   "children": [
+    {
+     "name": "Leisure",
+     "children": [
+      {"name": "Movie", "amount": 721, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "Dining", "amount": 4294, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "Club Membership", "amount": 9800, "currency": "$", "trdate": "12-Oct-2018"}
+     ]
+    }
+   ]
+  }
+ ]
+},
+{
+ "name": "First Direct",
+ "children": [
+  {
+   "name": "Saving Account",
+   "children": [
+    {
+     "name": "Online Shopping",
+     "children": [
+      {"name": "Amazon", "amount": 33938, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "Gropher", "amount": 33812, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "RedBus", "amount": 6714, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "MobiKwik", "amount": 743, "currency": "$", "trdate": "12-Oct-2018"}
+     ]
+    },
+    {
+     "name": "Bill Payments",
+     "children": [
+      {"name": "Electricity", "amount": 23534, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "Car Wash", "amount": 5731, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "Water", "amount": 7840, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "Internet", "amount": 5914, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "Cable", "amount": 3416, "currency": "$", "trdate": "12-Oct-2018"}
+     ]
+    },
+    {
+     "name": "EMI",
+     "children": [
+      {"name": "HomeLoan", "amount": 7074, "currency": "$", "trdate": "12-Oct-2018"}
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Current Account",
+   "children": [
+    {"name": "Interest", "amount": 17010, "currency": "$", "trdate": "12-Oct-2018"},
+    {"name": "Payments", "amount": 5842, "currency": "$", "trdate": "12-Oct-2018"},
+    {
+     "name": "Cash Withdrawals",
+     "children": [
+      {"name": "ATM Oct 11", "amount": 1983, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "ATM Oct 12", "amount": 2047, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "Cheque Oct 12", "amount": 1375, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "ATM Oct 14", "amount": 8746, "currency": "$", "trdate": "12-Oct-2018"}
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Credit Card Account",
+   "children": [
+    {
+     "name": "Leisure",
+     "children": [
+      {"name": "Movie", "amount": 721, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "Dining", "amount": 4294, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "Club Membership", "amount": 9800, "currency": "$", "trdate": "12-Oct-2018"}
+     ]
+    }
+   ]
+  }
+ ]
+},
+{
+ "name": "M&S",
+ "children": [
+  {
+   "name": "Saving Account",
+   "children": [
+    {
+     "name": "Online Shopping",
+     "children": [
+      {"name": "Amazon", "amount": 33938, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "Gropher", "amount": 33812, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "RedBus", "amount": 6714, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "MobiKwik", "amount": 743, "currency": "$", "trdate": "12-Oct-2018"}
+     ]
+    },
+    {
+     "name": "Bill Payments",
+     "children": [
+      {"name": "Electricity", "amount": 23534, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "Car Wash", "amount": 5731, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "Water", "amount": 7840, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "Internet", "amount": 5914, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "Cable", "amount": 3416, "currency": "$", "trdate": "12-Oct-2018"}
+     ]
+    },
+    {
+     "name": "EMI",
+     "children": [
+      {"name": "HomeLoan", "amount": 7074, "currency": "$", "trdate": "12-Oct-2018"}
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Current Account",
+   "children": [
+    {"name": "Interest", "amount": 17010, "currency": "$", "trdate": "12-Oct-2018"},
+    {"name": "Payments", "amount": 5842, "currency": "$", "trdate": "12-Oct-2018"},
+    {
+     "name": "Cash Withdrawals",
+     "children": [
+      {"name": "ATM Oct 11", "amount": 1983, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "ATM Oct 12", "amount": 2047, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "Cheque Oct 12", "amount": 1375, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "ATM Oct 14", "amount": 8746, "currency": "$", "trdate": "12-Oct-2018"}
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Credit Card Account",
+   "children": [
+    {
+     "name": "Leisure",
+     "children": [
+      {"name": "Movie", "amount": 721, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "Dining", "amount": 4294, "currency": "$", "trdate": "12-Oct-2018"},
+      {"name": "Club Membership", "amount": 9800, "currency": "$", "trdate": "12-Oct-2018"}
+     ]
+    }
+   ]
+  }
+ ]
+}
+]
+}
