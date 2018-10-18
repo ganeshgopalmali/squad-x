@@ -3,6 +3,7 @@ package com.hackathon.squadx.services;
 import javax.servlet.http.HttpServletRequest;
 
 import com.hackathon.squadx.client.SquadXClient;
+import com.hackathon.squadx.model.DrillDownTransactionsHistory;
 import com.hackathon.squadx.model.TransactionAnalysis;
 import com.hackathon.squadx.model.TransactionHistory;
 import com.hackathon.squadx.model.TransactionsRequest;
@@ -26,5 +27,9 @@ public class CustomerTransactionsService implements CustomerTransactions {
 	public Single<TransactionAnalysis> discoverTransactions(HttpServletRequest httpReq, TransactionsRequest transactionsRequest) {
 		return squadXClient.discoverTransactions(httpReq, transactionsRequest).map(it-> TransactionHistory.from(it,parseContext));
 	}
-
+	
+	@Override
+	public Single<DrillDownTransactionsHistory> drillDownTransactions(HttpServletRequest httpReq, TransactionsRequest transactionsRequest) {
+		return squadXClient.discoverTransactions(httpReq, transactionsRequest).map(it-> DrillDownTransactionsHistory.from(it,parseContext));
+	}
 }

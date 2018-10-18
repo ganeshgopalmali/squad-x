@@ -7,6 +7,22 @@ public class Transaction {
 	public Amount Amount;
 	public Balance Balance;
 	public String TransactionInformation;
+	public MerchantDetails MerchantDetails;
+	public String BookingDateTime;
+	
+	public MerchantDetails getMerchantDetails() {
+		return MerchantDetails;
+	}
+	public void setMerchantDetails(MerchantDetails merchantDetails) {
+		MerchantDetails = merchantDetails;
+	}
+	
+	public String getBookingDateTime() {
+		return BookingDateTime;
+	}
+	public void setBookingDateTime(String bookingDateTime) {
+		BookingDateTime = bookingDateTime;
+	}
 	
 	public Balance getBalance() {
 		return Balance;

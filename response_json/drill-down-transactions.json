@@ -1,0 +1,214 @@
+{
+    "name": "Account Transaction",
+    "children": [
+        {
+            "name": "DebitTransaction",
+            "children": [
+                {
+                    "name": "Other Payment",
+                    "children": [
+                        {
+                            "name": "Gillian Bethany Allen",
+                            "amount": "1,382.95",
+                            "currency": "GBP",
+                            "transactionDate": "2018-01-11T00:00:00+00:00"
+                        }
+                    ]
+                },
+                {
+                    "name": "EcommerceGoods Payment",
+                    "children": [
+                        {
+                            "name": "Hollie Marian White",
+                            "amount": "522.11",
+                            "currency": "GBP",
+                            "transactionDate": "2018-01-03T00:00:00+00:00"
+                        },
+                        {
+                            "name": "Lesley Shannon Kaur",
+                            "amount": "553.21",
+                            "currency": "GBP",
+                            "transactionDate": "2018-01-05T00:00:00+00:00"
+                        }
+                    ]
+                },
+                {
+                    "name": "EcommerceServices Payment",
+                    "children": [
+                        {
+                            "name": "Williamson Ltd.",
+                            "amount": "536.20",
+                            "currency": "GBP",
+                            "transactionDate": "2018-01-01T00:00:00+00:00"
+                        },
+                        {
+                            "name": "Charles Trevor Price",
+                            "amount": "682.24",
+                            "currency": "GBP",
+                            "transactionDate": "2018-01-06T00:00:00+00:00"
+                        },
+                        {
+                            "name": "David Jeffrey Taylor",
+                            "amount": "1,288.01",
+                            "currency": "GBP",
+                            "transactionDate": "2018-01-07T00:00:00+00:00"
+                        }
+                    ]
+                },
+                {
+                    "name": "nan Payment",
+                    "children": [
+                        {
+                            "name": "Hart-Reynolds",
+                            "amount": "431.70",
+                            "currency": "GBP",
+                            "transactionDate": "2018-01-17T00:00:00+00:00"
+                        },
+                        {
+                            "name": "Booth, Cooper and Bartlett",
+                            "amount": "2,520.84",
+                            "currency": "GBP",
+                            "transactionDate": "2018-01-20T00:00:00+00:00"
+                        }
+                    ]
+                },
+                {
+                    "name": "BillPayment Payment",
+                    "children": [
+                        {
+                            "name": "Leah Rachel Cartwright",
+                            "amount": "681.90",
+                            "currency": "GBP",
+                            "transactionDate": "2018-01-05T00:00:00+00:00"
+                        },
+                        {
+                            "name": "Taylor-Holloway",
+                            "amount": "609.21",
+                            "currency": "GBP",
+                            "transactionDate": "2018-01-06T00:00:00+00:00"
+                        },
+                        {
+                            "name": "Jasmine Joyce Gibson",
+                            "amount": "544.69",
+                            "currency": "GBP",
+                            "transactionDate": "2018-01-06T00:00:00+00:00"
+                        },
+                        {
+                            "name": "Sara Lynda Bull",
+                            "amount": "664.20",
+                            "currency": "GBP",
+                            "transactionDate": "2018-01-24T00:00:00+00:00"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "CreditTransaction",
+            "children": [
+                {
+                    "name": "Other Payment",
+                    "children": [
+                        {
+                            "name": "Matthew Ricky Harvey",
+                            "amount": "699.98",
+                            "currency": "GBP",
+                            "transactionDate": "2018-01-01T00:00:00+00:00"
+                        },
+                        {
+                            "name": "Jane Clare Peters",
+                            "amount": "605.90",
+                            "currency": "GBP",
+                            "transactionDate": "2018-01-04T00:00:00+00:00"
+                        },
+                        {
+                            "name": "Josephine Lisa Reynolds",
+                            "amount": "510.53",
+                            "currency": "GBP",
+                            "transactionDate": "2018-01-06T00:00:00+00:00"
+                        }
+                    ]
+                },
+                {
+                    "name": "PersonToPerson Payment",
+                    "children": [
+                        {
+                            "name": "Max Leon Thomas",
+                            "amount": "608.40",
+                            "currency": "GBP",
+                            "transactionDate": "2018-01-01T00:00:00+00:00"
+                        },
+                        {
+                            "name": "Smith",
+                            "amount": "690.36",
+                            "currency": "GBP",
+                            "transactionDate": "2018-01-04T00:00:00+00:00"
+                        }
+                    ]
+                },
+                {
+                    "name": "EcommerceGoods Payment",
+                    "children": [
+                        {
+                            "name": "Hannah Gillian Reed",
+                            "amount": "549.87",
+                            "currency": "GBP",
+                            "transactionDate": "2018-01-04T00:00:00+00:00"
+                        },
+                        {
+                            "name": "Debra Rachel Moore",
+                            "amount": "613.12",
+                            "currency": "GBP",
+                            "transactionDate": "2018-01-07T00:00:00+00:00"
+                        }
+                    ]
+                },
+                {
+                    "name": "EcommerceServices Payment",
+                    "children": [
+                        {
+                            "name": "Mark Keith Watson",
+                            "amount": "688.22",
+                            "currency": "GBP",
+                            "transactionDate": "2018-01-02T00:00:00+00:00"
+                        }
+                    ]
+                },
+                {
+                    "name": "BillPayment Payment",
+                    "children": [
+                        {
+                            "name": "Jessica  Rhee",
+                            "amount": "514.09",
+                            "currency": "GBP",
+                            "transactionDate": "2018-01-03T00:00:00+00:00"
+                        },
+                        {
+                            "name": "Carly Samantha Gallagher",
+                            "amount": "1,545.51",
+                            "currency": "GBP",
+                            "transactionDate": "2018-01-11T00:00:00+00:00"
+                        },
+                        {
+                            "name": "Chelsea Lisa Mahmood",
+                            "amount": "851.26",
+                            "currency": "GBP",
+                            "transactionDate": "2018-01-23T00:00:00+00:00"
+                        }
+                    ]
+                },
+                {
+                    "name": "cheque credit",
+                    "children": [
+                        {
+                            "name": "Tucker-Green",
+                            "amount": "1,053.29",
+                            "currency": "GBP",
+                            "transactionDate": "2018-01-20T00:00:00+00:00"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

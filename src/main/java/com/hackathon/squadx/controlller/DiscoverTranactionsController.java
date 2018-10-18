@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.async.DeferredResult;
 
+import com.hackathon.squadx.model.DrillDownTransactionsHistory;
 import com.hackathon.squadx.model.TransactionAnalysis;
 import com.hackathon.squadx.model.TransactionsRequest;
 import com.hackathon.squadx.services.CustomerTransactions;
@@ -26,9 +27,8 @@ public class DiscoverTranactionsController {
 		return Executors.toDeferred(customerTransactions.discoverTransactions(request, transactionsRequest));
 	}
 	
-	@GetMapping(value="/hello")
-	public String getData(){
-		return "Hello";
+	@PostMapping(value="/drill-down-transactions")
+	public DeferredResult<DrillDownTransactionsHistory> drillDownTransactions(HttpServletRequest request, @RequestBody TransactionsRequest transactionsRequest ){
+		return Executors.toDeferred(customerTransactions.drillDownTransactions(request, transactionsRequest));
 	}
-
 }
