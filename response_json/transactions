@@ -2,7 +2,7 @@
 "name": "Transactions",
 "children": [
 {
- "name": "HSBC",
+ "name": "Bank1",
  "children": [
   {
    "name": "Saving Account",
@@ -66,7 +66,7 @@
  ]
 },
 {
- "name": "First Direct",
+ "name": "Bank2",
  "children": [
   {
    "name": "Saving Account",
@@ -130,7 +130,7 @@
  ]
 },
 {
- "name": "M&S",
+ "name": "Bank3",
  "children": [
   {
    "name": "Saving Account",
