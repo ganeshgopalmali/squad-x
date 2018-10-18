@@ -61,7 +61,7 @@ d3.json("./transactions.json", function(error, root) {
     .attr("dy", ".35em") // vertical-align
     .text(function(d) {
 		if (d.amount) {
-			return d.name + ' ' + d.trdate + ' ' + d.currency + d.amount; 
+			return d.name + ' ' + d.transactionDate + ' ' + d.currency + d.amount; 
 		}
     		return d.name;
     }
