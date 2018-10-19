@@ -41,18 +41,18 @@ public class DrillDownTransactionsHistory {
 				if(debitTransactionDetails.containsKey(transaction.getTransactionInformation())) {
 					List<TransactionDetail> transactionDetailsList= debitTransactionDetails.get(transaction.getTransactionInformation());
 					TransactionDetail transactionDetails= new TransactionDetail();
-					transactionDetails.setAmount(transaction.getAmount().getAmount());
+					transactionDetails.setAmount(transaction.getAmount().getAmount().replaceAll(",", ""));
 					transactionDetails.setCurrency(transaction.getAmount().getCurrency());
 					transactionDetails.setName(transaction.getMerchantDetails().getMerchantName());
-					transactionDetails.setTransactionDate(transaction.getBookingDateTime());
+					transactionDetails.setTransactionDate(transaction.getBookingDateTime().substring(0,10));
 					transactionDetailsList.add(transactionDetails);
 				}else {
 					List<TransactionDetail> transactionDetailsList = new ArrayList<>();
 					TransactionDetail transactionDetails= new TransactionDetail();
-					transactionDetails.setAmount(transaction.getAmount().getAmount());
+					transactionDetails.setAmount(transaction.getAmount().getAmount().replaceAll(",", ""));
 					transactionDetails.setCurrency(transaction.getAmount().getCurrency());
 					transactionDetails.setName(transaction.getMerchantDetails().getMerchantName());
-					transactionDetails.setTransactionDate(transaction.getBookingDateTime());
+					transactionDetails.setTransactionDate(transaction.getBookingDateTime().substring(0,10));
 					transactionDetailsList.add(transactionDetails);
 					debitTransactionDetails.put(transaction.getTransactionInformation(), transactionDetailsList);
 				}
@@ -60,18 +60,18 @@ public class DrillDownTransactionsHistory {
 				if(creditTransactionDetails.containsKey(transaction.getTransactionInformation())) {
 					List<TransactionDetail> transactionDetailsList= creditTransactionDetails.get(transaction.getTransactionInformation());
 					TransactionDetail transactionDetails= new TransactionDetail();
-					transactionDetails.setAmount(transaction.getAmount().getAmount());
+					transactionDetails.setAmount(transaction.getAmount().getAmount().replaceAll(",", ""));
 					transactionDetails.setCurrency(transaction.getAmount().getCurrency());
 					transactionDetails.setName(transaction.getMerchantDetails().getMerchantName());
-					transactionDetails.setTransactionDate(transaction.getBookingDateTime());
+					transactionDetails.setTransactionDate(transaction.getBookingDateTime().substring(0,10));
 					transactionDetailsList.add(transactionDetails);
 				}else {
 					List<TransactionDetail> transactionDetailsList = new ArrayList<>();
 					TransactionDetail transactionDetails= new TransactionDetail();
-					transactionDetails.setAmount(transaction.getAmount().getAmount());
+					transactionDetails.setAmount(transaction.getAmount().getAmount().replaceAll(",", ""));
 					transactionDetails.setCurrency(transaction.getAmount().getCurrency());
 					transactionDetails.setName(transaction.getMerchantDetails().getMerchantName());
-					transactionDetails.setTransactionDate(transaction.getBookingDateTime());
+					transactionDetails.setTransactionDate(transaction.getBookingDateTime().substring(0,10));
 					transactionDetailsList.add(transactionDetails);
 					creditTransactionDetails.put(transaction.getTransactionInformation(), transactionDetailsList);
 				}

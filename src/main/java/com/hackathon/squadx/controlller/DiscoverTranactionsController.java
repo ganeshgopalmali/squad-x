@@ -12,6 +12,7 @@ import com.hackathon.squadx.model.TransactionsRequest;
 import com.hackathon.squadx.services.CustomerTransactions;
 import com.hackathon.squadx.util.Executors;
 
+@CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping({"/api"})
 public class DiscoverTranactionsController {
@@ -27,8 +28,9 @@ public class DiscoverTranactionsController {
 		return Executors.toDeferred(customerTransactions.discoverTransactions(request, transactionsRequest));
 	}
 	
-	@PostMapping(value="/drill-down-transactions")
+	@PostMapping(value="/drill-down-transactions", consumes = "application/json")
 	public DeferredResult<DrillDownTransactionsHistory> drillDownTransactions(HttpServletRequest request, @RequestBody TransactionsRequest transactionsRequest ){
 		return Executors.toDeferred(customerTransactions.drillDownTransactions(request, transactionsRequest));
 	}
 }
+
