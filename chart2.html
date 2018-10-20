@@ -11,126 +11,248 @@ text {
   font-family: Arial, sans-serif;
   font-size: 12px;
 }
+.form-style-3{
+	max-width: 400px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	align-self: center;
+}
+.form-style-3 label{
+	display:block;
+	margin-bottom: 10px;
+}
+.form-style-3 label > span{
+	float: left;
+	width: 100px;
+	color: blue;
+	font-weight: bold;
+	font-size: 13px;
+	text-shadow: 1px 1px 1px #fff;
+}
+.form-style-3 fieldset{
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	margin: 0px 0px 10px 0px;
+	border: 1px solid #FFD2D2;
+	padding: 20px;
+	background: white;
+	box-shadow: inset 0px 0px 15px gray;
+	-moz-box-shadow: inset 0px 0px 15px gray;
+	-webkit-box-shadow: inset 0px 0px 15px gray;
+}
+.form-style-3 fieldset legend{
+	color: blue;
+	border-top: 1px solid #FFD2D2;
+	border-left: 1px solid #FFD2D2;
+	border-right: 1px solid #FFD2D2;
+	border-radius: 5px 5px 0px 0px;
+	-webkit-border-radius: 5px 5px 0px 0px;
+	-moz-border-radius: 5px 5px 0px 0px;
+	background: white;
+	padding: 0px 8px 3px 8px;
+	box-shadow: -0px -1px 2px #F1F1F1;
+	-moz-box-shadow:-0px -1px 2px #F1F1F1;
+	-webkit-box-shadow:-0px -1px 2px #F1F1F1;
+	font-weight: normal;
+	font-size: 12px;
+}
+.form-style-3 input[type=text],
+.form-style-3 input[type=date],
+.form-style-3 input[type=datetime],
+.form-style-3 input[type=number],
+.form-style-3 input[type=submit]{
+	background: white;
+	border: 1px solid black;
+	padding: 5px 15px 5px 15px;
+	color: black;
+	border-radius: 3px;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;	
+	font-weight: bold;
+	width: 210px
+}
+
+.form-style-3 input[type=button]{
+	background: white;
+	border: 1px solid blue;
+	padding: 5px 15px 5px 15px;
+	color: black;
+	border-radius: 3px;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;	
+	font-weight: bold;
+	width: 100px;
+}
+.required{
+	color:red;
+	font-weight:normal;
+}
+
 
 </style>
 <body>
+<div>
+<div class="form-style-3" align="left">
 <form>
-<table>
-	<tr><td>Start Date</td><td><input type="text" id="FromDate" value="2018-01-01T00:00:00+00:00" /></td></tr>
-	<tr><td>End Date</td><td><input type="text" id="ToDate" value="2018-01-31T00:00:00+00:00" /></td></tr>
-	<tr><td>Token</td><td><input type="text" id="authToken" /></td></tr>
-	<tr><td colspan=2><input type="button" value="visualize" onclick="visualize()"></td></tr>
-	</table>
-	<label for="processLabel" name="processLabel" id="processLabel"></label>
+<fieldset><legend>Visualize Transactions</legend>
+<label for="field1"><span>Start Date <span class="required">*</span></span><input type="text" id="FromDate" class="input-field" value="2018-01-01T00:00:00+00:00" /></label>
+<label for="field2"><span>End Date <span class="required">*</span></span><input type="text" id="ToDate" class="input-field" value="2018-01-31T00:00:00+00:00" /></label>
+<label for="field3"><span>Token <span class="required">*</span></span><input type="text" class="input-field" id="authToken" /></label>
+<label><center><input type="button" value="Visualize" onclick="visualize()"></center></label>
+</fieldset>
 </form>
-
+</div>
+<br/>
+</div>
+<div id="loader_container"></div>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
-function visualize(){
-document.getElementById("processLabel").innerHTML = "Processing...";
-var FromDate = document.getElementById("FromDate").value;
-var ToDate = document.getElementById("ToDate").value;
-var authToken = document.getElementById("authToken").value;
-var postData = JSON.stringify({"TransactionFromDateTime":FromDate,"TransactionToDateTime":ToDate});
+function loader(config) {
+	return function() {
+		var radius = Math.min(config.width, config.height) / 2;
+	    var tau = 2 * Math.PI;
 
-var width = 960,
-    height = 700,
-    radius = Math.min(width, height) / 2;
+	    var arc = d3.svg.arc()
+	            .innerRadius(radius*0.55)
+	            .outerRadius(radius*0.6)
+	            .startAngle(0);
 
-var x = d3.scale.linear()
-    .range([0, 2 * Math.PI]);
+	    var svg = d3.select(config.container).append("svg")
+	        .attr("id", config.id)
+	        .attr("width", config.width)
+	        .attr("height", config.height)
+	      .append("g")
+	        .attr("transform", "translate(" + config.width / 2 + "," + config.height / 2 + ")")
 
-var y = d3.scale.linear()
-    .range([0, radius]);
+	    var background = svg.append("path")
+	            .datum({endAngle: 0.33*tau})
+	            .style("fill", "#4D4D4D")
+	            .attr("d", arc)
+	            .call(spin, 1500)
 
-var color = d3.scale.category20c();
+	    function spin(selection, duration) {
+	        selection.transition()
+	            .ease("linear")
+	            .duration(duration)
+	            .attrTween("transform", function() {
+	                return d3.interpolateString("rotate(0)", "rotate(360)");
+	            });
 
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height)
-  .append("g")
-    .attr("transform", "translate(" + width / 2 + "," + (height / 2 + 10) + ")");
+	        setTimeout(function() { spin(selection, duration); }, duration);
+	    }
 
-var partition = d3.layout.partition()
-    .value(function(d) { return d.amount; });
-
-var arc = d3.svg.arc()
-    .startAngle(function(d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x))); })
-    .endAngle(function(d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x + d.dx))); })
-    .innerRadius(function(d) { return Math.max(0, y(d.y)); })
-    .outerRadius(function(d) { return Math.max(0, y(d.y + d.dy)); });
-
-d3.json('http://localhost:8080/api/drill-down-transactions')
-.header("Content-Type", "application/json")
-.header("Accept", "application/json")
-.header("Authorization", "bearer "+authToken)
-.header("x-fapi-interaction-id", "2c96efd2-6566-490a-81d7-24dd51340196")
-.header("x-fapi-financial-id", "OB/2017/001")
-.header("Access-Control-Allow-Origin","3600")
-.post(postData,  function(error, root) {
-	document.getElementById("processLabel").innerHTML = "";
-  var g = svg.selectAll("g")
-      .data(partition.nodes(root))
-    .enter().append("g");
-
-  var path = g.append("path")
-    .attr("d", arc)
-    .style("fill", function(d) { return color((d.children ? d : d.parent).name); })
-    .on("click", click);
-
-  var text = g.append("text")
-    .attr("transform", function(d) { return "rotate(" + computeTextRotation(d) + ")"; })
-    .attr("x", function(d) { return y(d.y); })
-    .attr("dx", "6") // margin
-    .attr("dy", ".35em") // vertical-align
-    .text(function(d) {
-		if (d.amount) {
-			return d.name + ' ' + d.currency + ' ' + d.amount; 
-		}
-    		return d.name;
-    }
-    );
-
-  function click(d) {
-    // fade out all text elements
-    text.transition().attr("opacity", 0);
-
-    path.transition()
-      .duration(750)
-      .attrTween("d", arcTween(d))
-      .each("end", function(e, i) {
-          // check if the animated element's data e lies within the visible angle span given in d
-          if (e.x >= d.x && e.x < (d.x + d.dx)) {
-            // get a selection of the associated text element
-            var arcText = d3.select(this.parentNode).select("text");
-            // fade in the text element and recalculate positions
-            arcText.transition().duration(750)
-              .attr("opacity", 1)
-              .attr("transform", function() { return "rotate(" + computeTextRotation(e) + ")" })
-              .attr("x", function(d) { return y(d.y); });
-          }
-      });
-  }
-});
-
-d3.select(self.frameElement).style("height", height + "px");
-
-// Interpolate the scales!
-function arcTween(d) {
-  var xd = d3.interpolate(x.domain(), [d.x, d.x + d.dx]),
-      yd = d3.interpolate(y.domain(), [d.y, 1]),
-      yr = d3.interpolate(y.range(), [d.y ? 20 : 0, radius]);
-  return function(d, i) {
-    return i
-        ? function(t) { return arc(d); }
-        : function(t) { x.domain(xd(t)); y.domain(yd(t)).range(yr(t)); return arc(d); };
-  };
+	    function transitionFunction(path) {
+	        path.transition()
+	            .duration(7500)
+	            .attrTween("stroke-dasharray", tweenDash)
+	            .each("end", function() { d3.select(this).call(transition); });
+	    }
+	  };
 }
 
-function computeTextRotation(d) {
-  return (x(d.x + d.dx / 2) - Math.PI / 2) / Math.PI * 180;
-}
+function visualize() {
+	d3.select("svg").remove();
+	
+	var width = 960,
+	    height = 700,
+	    radius = Math.min(width, height) / 2;
+	
+	var waitScreen = loader({width: width, height: height/2 , container: "#loader_container", id: "loader"});
+	waitScreen();
+	var FromDate = document.getElementById("FromDate").value;
+	var ToDate = document.getElementById("ToDate").value;
+	var authToken = document.getElementById("authToken").value;
+	var postData = JSON.stringify({"TransactionFromDateTime":FromDate,"TransactionToDateTime":ToDate});
 
+	var x = d3.scale.linear()
+	    .range([0, 2 * Math.PI]);
+	
+	var y = d3.scale.linear()
+	    .range([0, radius]);
+	
+	var color = d3.scale.category20c();
+
+	d3.json('http://localhost:8080/api/drill-down-transactions')
+		.header("Content-Type", "application/json")
+		.header("Accept", "application/json")
+		.header("Authorization", "bearer "+authToken)
+		.header("x-fapi-interaction-id", "2c96efd2-6566-490a-81d7-24dd51340196")
+		.header("x-fapi-financial-id", "OB/2017/001")
+		.header("Access-Control-Allow-Origin","3600")
+		.post(postData,  function(error, root) {
+			d3.select("svg").remove();
+		
+			var svg = d3.select("body").append("svg")
+			    .attr("width", width)
+			    .attr("height", height)
+			  	.append("g")
+			    .attr("transform", "translate(" + width / 2 + "," + (height / 2 + 10) + ")");
+	
+			var partition = d3.layout.partition()
+			    .value(function(d) { return d.amount; });
+		
+			var arc = d3.svg.arc()
+			    .startAngle(function(d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x))); })
+			    .endAngle(function(d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x + d.dx))); })
+			    .innerRadius(function(d) { return Math.max(0, y(d.y)); })
+			    .outerRadius(function(d) { return Math.max(0, y(d.y + d.dy)); });
+		    
+		  	var g = svg.selectAll("g").data(partition.nodes(root))
+		    		.enter().append("g");
+
+		  	var path = g.append("path")
+			    .attr("d", arc)
+			    .style("fill", function(d) { return color((d.children ? d : d.parent).name); })
+			    .on("click", click);
+		
+		  	var text = g.append("text")
+			    .attr("transform", function(d) { return "rotate(" + computeTextRotation(d) + ")"; })
+			    .attr("x", function(d) { return y(d.y); })
+			    .attr("dx", "6") // margin
+			    .attr("dy", ".35em") // vertical-align
+			    .text(function(d) {
+					return (d.amount) ?  d.name + ' ' + d.currency + ' ' + d.amount : d.name;
+			    });
+
+		  	function click(d) {
+		    		// fade out all text elements
+		    		text.transition().attr("opacity", 0);
+		
+		    		path.transition()
+				      .duration(750)
+				      .attrTween("d", arcTween(d))
+				      .each("end", function(e, i) {
+			          // check if the animated element's data e lies within the visible angle span given in d
+			          if (e.x >= d.x && e.x < (d.x + d.dx)) {
+			            // get a selection of the associated text element
+			            var arcText = d3.select(this.parentNode).select("text");
+			            // fade in the text element and recalculate positions
+			            arcText.transition().duration(750)
+			              .attr("opacity", 1)
+			              .attr("transform", function() { return "rotate(" + computeTextRotation(e) + ")" })
+			              .attr("x", function(d) { return y(d.y); });
+			          }
+		      	});
+	  		}
+  
+  			d3.select(self.frameElement).style("height", height + "px");
+
+			//Interpolate the scales!
+			function arcTween(d) {
+			 	var xd = d3.interpolate(x.domain(), [d.x, d.x + d.dx]),
+				    yd = d3.interpolate(y.domain(), [d.y, 1]),
+				    yr = d3.interpolate(y.range(), [d.y ? 20 : 0, radius]);
+			 	return function(d, i) {
+			   		return i ? function(t) { return arc(d); } : function(t) { x.domain(xd(t)); y.domain(yd(t)).range(yr(t)); return arc(d); };
+			 	};
+			}
+	
+			function computeTextRotation(d) {
+	 			return (x(d.x + d.dx / 2) - Math.PI / 2) / Math.PI * 180;
+			}
+	});
 }
 </script>
 </body>
